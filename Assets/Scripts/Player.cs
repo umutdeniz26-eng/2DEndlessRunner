@@ -11,24 +11,32 @@ public class Player : MonoBehaviour
     [Header("Movement Details")]
     [SerializeField] private float moveSpeed = 9f;
     [SerializeField] private float jumpSpeed = 2f;
-    public bool isFacingRight = true;
+    [SerializeField] private bool isFacingRight = true;
     private float moveInput;
 
     [Header("Collision")]
     [Range(0f,10f)]
     [SerializeField] private float rayDistance = 3;
     public LayerMask isGround;
-    private bool grounded;
+    [SerializeField] private bool grounded;
 
-
+    
 
 
     void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        HandleJump();
+        HandleAnimation();
 
+        HandleJump();
         HandleFlip(moveInput);
+    }
+
+    private void HandleAnimation()
+    {
+        anim.SetFloat("xVelocity", Mathf.Abs(moveInput));
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+        anim.SetBool("isGrounded", grounded);
     }
 
     private void HandleJump()
