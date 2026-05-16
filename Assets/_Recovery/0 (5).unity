@@ -426,7 +426,7 @@ Transform:
   m_GameObject: {fileID: 1018180930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -525,9 +525,8 @@ MonoBehaviour:
   - {fileID: 794117998571147162, guid: 1208fb3d4cbfbc343abcd88af7943c28, type: 3}
   - {fileID: 8393952102885898105, guid: 4fb8be4ded66d824f9c394e7e05d8d0f, type: 3}
   player: {fileID: 1018180932}
-  nextPartPosition: {x: -5, y: 0, z: 0}
-  distanceToSpawn: 30
-  distanceToDelete: 30
+  nextPartPosition: {x: 0, y: 0, z: 0}
+  spawnDistance: 10
 --- !u!4 &1081497081
 Transform:
   m_ObjectHideFlags: 0

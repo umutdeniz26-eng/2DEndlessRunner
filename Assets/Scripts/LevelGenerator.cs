@@ -5,35 +5,52 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    [SerializeField] private Transform levelPart;
+    [SerializeField] private Transform[] levelPart;
     [SerializeField] private Transform player;
-    [SerializeField] private Vector3 endPos;
-    [SerializeField] private Vector3 startPos;
-    [SerializeField] private Vector3 nextSpawnPos;
-
-    [SerializeField] private float spawnDistance = 10f;
-    [SerializeField] private float deleteDistance = 10f;
-
-    [SerializeField] private List<Transform> platforms;
-    [SerializeField] private int platformCount = 5;
-
+    [SerializeField] private Vector3 nextPartPosition;
+    [SerializeField] private float distanceToSpawn = 30;
+    [SerializeField] private float distanceToDelete=30;
     
-
     private void Start()
     {
 
-        nextSpawnPos = platforms[0].Find("EndPos").transform.position;
-
-        for(int i = 0; i < platformCount; i++)
-        {
-            Transform p=Instantiate(platforms[Random.Range(0,platforms.Count)],nextSpawnPos, Quaternion.identity,transform);
-            nextSpawnPos = p.Find("EndPos").transform.position;
-            //p.gameObject.SetActive(false);
-        }
+        
 
     }
     void Update()
     {
-      
+        GeneratePlatform();
+        DeletePlatform();
+
+    }
+
+    
+
+    private void GeneratePlatform()
+    {
+        while (Vector3.Distance(player.position, nextPartPosition) < distanceToSpawn)
+        {
+
+            Transform part = levelPart[Random.Range(0, levelPart.Length)];
+
+            Vector3 newPosition = new Vector3(nextPartPosition.x - part.Find("StartPos").position.x,0,0);
+
+            Transform newPart = Instantiate(part, newPosition, transform.rotation, transform);
+
+            nextPartPosition = newPart.Find("EndPos").position;
+        }
+    }
+
+
+    private void DeletePlatform()
+    {
+        if (transform.childCount > 0)
+        {
+            Transform partToDelete=transform.GetChild(0);
+
+            if (Vector3.Distance(player.position, partToDelete.Find("EndPos").position) > distanceToDelete)
+                Destroy(partToDelete.gameObject);
+
+        }
     }
 }
