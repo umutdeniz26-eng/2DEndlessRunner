@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a51e0935e7ef041839f606ae6f8f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxBackGround
-  parallaxMultiplier: 0.05
+  parallaxEffect: 0.95
 --- !u!1 &1187045642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a51e0935e7ef041839f606ae6f8f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxBackGround
-  parallaxMultiplier: 0.1
+  parallaxEffect: 0.9
 --- !u!1 &1377469615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a51e0935e7ef041839f606ae6f8f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxBackGround
-  parallaxMultiplier: 0.01
+  parallaxEffect: 0.99
 --- !u!1 &1738033662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a51e0935e7ef041839f606ae6f8f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxBackGround
-  parallaxMultiplier: 0.3
+  parallaxEffect: 0.65
 --- !u!1 &1788682234
 GameObject:
   m_ObjectHideFlags: 0

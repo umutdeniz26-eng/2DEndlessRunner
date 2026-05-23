@@ -11,14 +11,16 @@ public class Player : MonoBehaviour
     [Header("Movement Details")]
     [SerializeField] private float moveSpeed = 9f;
     [SerializeField] private float jumpSpeed = 2f;
-    [SerializeField] private bool isFacingRight = true;
+    [SerializeField] private float doubleJumpSpeed;
+    private bool isFacingRight = true;
     private float moveInput;
+    private bool canDoubleJump;
 
     [Header("Collision")]
     [Range(0f,10f)]
     [SerializeField] private float rayDistance = 3;
     public LayerMask isGround;
-    [SerializeField] private bool grounded;
+    [SerializeField] private bool isGrounded;
 
     
 
@@ -36,22 +38,39 @@ public class Player : MonoBehaviour
     {
         anim.SetFloat("xVelocity", Mathf.Abs(moveInput));
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
-        anim.SetBool("isGrounded", grounded);
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("canDoubleJump", canDoubleJump);
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&&grounded)
-            Jump();
+        if (Input.GetKeyDown(KeyCode.Space))
+            TryJump();
     }
 
-    
+    private void TryJump()
+    {
+        if (isGrounded)
+        {
+            canDoubleJump = true;
+            
+           rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
+        }
+
+        else if (canDoubleJump)
+        {
+            canDoubleJump = false;
+          
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpSpeed);
+        }
+    }
+
 
     public void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        grounded = GroundCheck();
+        isGrounded = GroundCheck();
     }
 
 
@@ -75,10 +94,9 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Jump()
-    {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
-    }
+   
+        
+    
 
     private void OnDrawGizmos()
     {
@@ -93,4 +111,7 @@ public class Player : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, isGround);
         return hit;
     }
+
+
+   
 }
