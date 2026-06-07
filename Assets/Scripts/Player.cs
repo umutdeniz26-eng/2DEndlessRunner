@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private LedgeCheck ledgeCheck;
 
     [Header("Movement Details")]
     [SerializeField] private float moveSpeed = 9f;
@@ -23,10 +24,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.1f);
     [SerializeField] private Vector2 wallCheckSize = new Vector2(0.1f, 2f);
     [SerializeField] private Transform wallCheck;
-    
     private bool isGrounded;
-    private bool isWall;
+    public bool isLedge;
+    public bool isWall;
     public LayerMask isGround;
+    
 
     [Header("Sliding")]
     [SerializeField] private bool isSliding;
@@ -42,13 +44,23 @@ public class Player : MonoBehaviour
     [SerializeField] private CapsuleCollider2D playerCollider; 
     [SerializeField] private Vector2 slidingColliderSize = new Vector2(0.6f, 1.25f);
     [SerializeField] private Vector2 slidingColliderOffset = new Vector2(0f, -0.8f);
-    private Vector2 originalColliderSize;
-    private Vector2 originalColliderOffset;
     [SerializeField] private bool isCeiling;
-
-
     [SerializeField] private float ceilingCheckDistance = 1f; 
     [SerializeField] private Vector2 ceilingCheckSize = new Vector2(0.5f, 0.1f);
+    private Vector2 originalColliderSize;
+    private Vector2 originalColliderOffset;
+
+
+    [Header("Ledge")]
+    [SerializeField] private bool isHanging;
+    
+    private bool isClimbing;
+
+    
+    
+
+
+
 
 
     private void Start()
@@ -71,6 +83,21 @@ public class Player : MonoBehaviour
         HandleSliding();
         HandleJump();
         HandleFlip(moveInput);
+        HandleLedge();
+    }
+
+
+    private void HandleLedge()
+    {
+        if (ledgeCheck.CanClimb())
+        {
+            isHanging = true;
+            Debug.Log("evet");
+        }
+
+
+
+
     }
 
     private void Movement()
@@ -150,6 +177,8 @@ public class Player : MonoBehaviour
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("canDoubleJump", canDoubleJump);
         anim.SetBool("isSliding", isSliding);
+        anim.SetBool("isHanging", isHanging);
+        anim.SetBool("isClimbing", isClimbing);
     }
 
     private void HandleJump()
