@@ -1,5 +1,3 @@
-using System;
-
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,7 +5,10 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
-    [SerializeField] private LedgeCheck ledgeCheck;
+
+    [Header("Ledge Raycast Positions")]
+    [SerializeField] private Transform ledgeCheck;     
+    [SerializeField] private Transform ledgeWallCheck; 
 
     [Header("Movement Details")]
     [SerializeField] private float moveSpeed = 9f;
@@ -24,11 +25,16 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.1f);
     [SerializeField] private Vector2 wallCheckSize = new Vector2(0.1f, 2f);
     [SerializeField] private Transform wallCheck;
+    [SerializeField] public bool isWallLedge;
     private bool isGrounded;
     public bool isLedge;
     public bool isWall;
     public LayerMask isGround;
-    
+
+    [Header("Ledge Raycast Details")]
+    [SerializeField] private float ledgeCheckDistance = 0.5f; 
+    private bool isTouchingLedgeWall; 
+    private bool isTouchingLedge;     
 
     [Header("Sliding")]
     [SerializeField] private bool isSliding;
@@ -39,40 +45,31 @@ public class Player : MonoBehaviour
     [SerializeField] private float lastSlidingTime;
     [SerializeField] private float slideDir;
 
-   
     [Header("Sliding Collider")]
-    [SerializeField] private CapsuleCollider2D playerCollider; 
+    [SerializeField] private CapsuleCollider2D playerCollider;
     [SerializeField] private Vector2 slidingColliderSize = new Vector2(0.6f, 1.25f);
     [SerializeField] private Vector2 slidingColliderOffset = new Vector2(0f, -0.8f);
     [SerializeField] private bool isCeiling;
-    [SerializeField] private float ceilingCheckDistance = 1f; 
+    [SerializeField] private float ceilingCheckDistance = 1f;
     [SerializeField] private Vector2 ceilingCheckSize = new Vector2(0.5f, 0.1f);
     private Vector2 originalColliderSize;
     private Vector2 originalColliderOffset;
 
-
     [Header("Ledge")]
     [SerializeField] private bool isHanging;
-    
-    private bool isClimbing;
-
-    
-    
-
-
-
+    [SerializeField]private bool isClimbing;
+    [SerializeField] private Vector2 hangingOffset;
+    [SerializeField] private Vector2 standOffset; 
+    private Vector2 climbOverPosition;
+    private Vector2 climbBeginPosition;
 
 
     private void Start()
     {
         lastSlidingTime = slidingCooldown;
 
-       
-        
-            originalColliderSize = playerCollider.size;
-            originalColliderOffset = playerCollider.offset;
-            
-        
+        originalColliderSize = playerCollider.size;
+        originalColliderOffset = playerCollider.offset;
     }
 
     private void Update()
@@ -86,36 +83,94 @@ public class Player : MonoBehaviour
         HandleLedge();
     }
 
-
     private void HandleLedge()
     {
-        if (ledgeCheck.CanClimb())
+        
+        if (isTouchingLedgeWall && !isTouchingLedge && !isHanging &&!isGrounded)
         {
             isHanging = true;
-            Debug.Log("evet");
+
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = Vector2.zero;
+            SnapToCorner();
+        }
+
+        if (isHanging)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+               
+                isHanging = false;
+                isClimbing = true;
+
+            }
+        }
+    }
+            
+            
+
+    public void FinishClimb()
+    {
+        transform.position = (Vector2)transform.position + standOffset;
+
+        anim.transform.localPosition = Vector3.zero;
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
+    }
+
+
+
+
+   
+    private bool SnapToCorner()
+    {
+        float dir = isFacingRight ? 1f : -1f;
+
+
+        RaycastHit2D wallHit = Physics2D.Raycast(ledgeWallCheck.position, Vector2.right * dir, ledgeCheckDistance, isGround);
+
+        if (wallHit.collider != null)
+        {
+
+            Vector2 downRayStart = new Vector2(wallHit.point.x + (dir * 0.05f), ledgeCheck.position.y + 0.1f);
+            RaycastHit2D groundHit = Physics2D.Raycast(downRayStart, Vector2.down, 1.5f, isGround);
+
+            if (groundHit.collider != null)
+            {
+
+                Vector2 exactCorner = new Vector2(wallHit.point.x, groundHit.point.y);
+
+
+                climbBeginPosition = new Vector2(exactCorner.x + (hangingOffset.x * dir), exactCorner.y + hangingOffset.y);
+                transform.position = climbBeginPosition;
+
+                Debug.Log("Kusursuz köþeye kilitlendi!");
+                return false;
+            }
         }
 
 
-
-
+        climbBeginPosition = (Vector2)ledgeWallCheck.position + hangingOffset;
+        transform.position = climbBeginPosition;
+        Debug.Log("Eski sistemle tutundu (Yedek)");
+        return true;
     }
 
     private void Movement()
     {
+        if (isHanging) return;
+
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        
-        
-
-            if (isSliding)
-            {
-                rb.linearVelocity = new Vector2(slideDir * slidingSpeed, rb.linearVelocity.y);
-            }
-            else if(!WallCheck())
-            {
-                rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-            }
-        
+        if (isSliding)
+        {
+            rb.linearVelocity = new Vector2(slideDir * slidingSpeed, rb.linearVelocity.y);
+        }
+        else if (!WallCheck())
+        {
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        }
     }
 
     private void HandleSliding()
@@ -124,7 +179,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             TrySlide();
-
 
         StopSlidingIfNeeded();
     }
@@ -136,10 +190,9 @@ public class Player : MonoBehaviour
         if (slidingTimer < lastSlidingTime - slidingDuration && !isCeiling)
         {
             isSliding = false;
-                    
-                playerCollider.size = originalColliderSize;
-                playerCollider.offset = originalColliderOffset;
-            
+
+            playerCollider.size = originalColliderSize;
+            playerCollider.offset = originalColliderOffset;
         }
     }
 
@@ -157,17 +210,24 @@ public class Player : MonoBehaviour
         isSliding = true;
 
         slideDir = isFacingRight ? 1 : -1;
-       
-            playerCollider.size = slidingColliderSize;
-            playerCollider.offset = slidingColliderOffset;
-          
-        
+
+        playerCollider.size = slidingColliderSize;
+        playerCollider.offset = slidingColliderOffset;
     }
 
     private void CheckCollision()
     {
         isWall = WallCheck();
         isGrounded = GroundCheck();
+
+        float dir = isFacingRight ? 1f : -1f;
+
+        
+        if (ledgeWallCheck != null && ledgeCheck != null)
+        {
+            isTouchingLedgeWall = Physics2D.Raycast(ledgeWallCheck.position, Vector2.right * dir, ledgeCheckDistance, isGround);
+            isTouchingLedge = Physics2D.Raycast(ledgeCheck.position, Vector2.right * dir, ledgeCheckDistance, isGround);
+        }
     }
 
     private void HandleAnimation()
@@ -183,7 +243,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isHanging)
             TryJump();
     }
 
@@ -228,6 +288,14 @@ public class Player : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position + Vector3.up * ceilingCheckDistance, ceilingCheckSize);
+
+        if (ledgeWallCheck != null && ledgeCheck != null)
+        {
+            float dir = isFacingRight ? 1f : -1f;
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(ledgeWallCheck.position, ledgeWallCheck.position + Vector3.right * dir * ledgeCheckDistance);
+            Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + Vector3.right * dir * ledgeCheckDistance);
+        }
     }
 
     private bool GroundCheck()
@@ -244,7 +312,7 @@ public class Player : MonoBehaviour
 
     private bool CeilingCheck()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, ceilingCheckSize, 0, Vector2.up, ceilingCheckDistance,isGround);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, ceilingCheckSize, 0, Vector2.up, ceilingCheckDistance, isGround);
         return hit.collider != null;
     }
 }
