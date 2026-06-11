@@ -615,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8080997, y: 5.450001, z: -1}
+  m_LocalPosition: {x: 33.1481, y: 6.8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1038,7 +1038,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &1018180932
 Transform:
@@ -1049,7 +1049,7 @@ Transform:
   m_GameObject: {fileID: 1018180930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 3.21, z: 0}
+  m_LocalPosition: {x: 25.43, y: 4.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1073,39 +1073,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 1018180931}
   anim: {fileID: 1788682237}
-  ledgeCheck: {fileID: 1939959013}
-  ledgeWallCheck: {fileID: 1941195415}
   moveSpeed: 10
   jumpSpeed: 16
   doubleJumpSpeed: 12
-  groundCheckDistance: 3
+  groundCheckDistance: 1.29
   groundCheckSize: {x: 0.8, y: 0.1}
   wallCheckSize: {x: 0.1, y: 2}
   wallCheck: {fileID: 707113730}
-  isWallLedge: 0
-  isLedge: 0
-  isWall: 0
   isGround:
     serializedVersion: 2
     m_Bits: 64
-  ledgeCheckDistance: 0.6
-  isSliding: 1
   slidingSpeed: 12
   slidingDuration: 0.8
   slidingCooldown: 1
-  slidingTimer: -0.9990587
-  lastSlidingTime: -0.7116132
-  slideDir: 0
+  slideWallCheckDistance: 1.2
+  slideWallCheckOffset: {x: 0, y: -1.21}
   playerCollider: {fileID: 1018180935}
   slidingColliderSize: {x: 0.6, y: 1.25}
-  slidingColliderOffset: {x: 0, y: -0.8}
-  isCeiling: 0
-  ceilingCheckDistance: 0.45
+  slidingColliderOffset: {x: 0, y: -0.71}
   ceilingCheckSize: {x: 0.5, y: 1.3}
-  isHanging: 0
-  isClimbing: 0
+  ceilingCheckDistance: 0.45
   hangingOffset: {x: -0.462, y: -1.175}
-  standOffset: {x: 3, y: 3}
+  standOffset: {x: 0.872, y: 2.519}
+  climbCeilingCheckOffset: {x: 0.5, y: 1.3}
+  ledgeJump: {x: 3, y: 12}
+  climbCeilingCheckDistance: 2.2
+  ledgeCheckDistance: 0.6
+  ledgeCheck: {fileID: 1939959013}
+  ledgeWallCheck: {fileID: 1941195415}
 --- !u!70 &1018180935
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1925,7 +1920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 794117998571147162, guid: 1208fb3d4cbfbc343abcd88af7943c28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 794117998571147162, guid: 1208fb3d4cbfbc343abcd88af7943c28, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2561,7 +2556,7 @@ Transform:
   m_GameObject: {fileID: 1686821972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8080997, y: 5.450001, z: -1}
+  m_LocalPosition: {x: 33.1481, y: 6.8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

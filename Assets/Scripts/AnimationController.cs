@@ -11,12 +11,13 @@ public class AnimationController : MonoBehaviour
        
     }
 
+   
+
+   
     private void AfterClimb()
     {
-
         player.FinishClimb();
     }
-
     void Update()
     {
         
