@@ -11,18 +11,24 @@ public class AnimationController : MonoBehaviour
        
     }
 
-   
-
-   
-    private void AfterClimb()
+    
+    private void EndClimb()
     {
         player.FinishClimb();
     }
-    void Update()
-    {
-        
-    }
 
+
+
+    private void EndRoll()
+    {
+        player.EndRoll();
+    }
+   
+
+    private void EndKnockback()
+    {
+        player.EndKnockback();
+    }
 
 
 }

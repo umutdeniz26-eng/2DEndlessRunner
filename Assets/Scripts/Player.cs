@@ -1,3 +1,5 @@
+using System.Collections;
+
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,20 +7,37 @@ public class Player : MonoBehaviour
 
     [Header("Components")]
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Animator anim;
+   [SerializeField] private Rigidbody2D rb;
+   [SerializeField] private Animator anim;
+    private SpriteRenderer sr;
+    private Color invincibilityColor = new Color32(255, 255, 255, 120);
+    private Color originalColor;
 
 
 
     [Header("Movement Details")]
 
-    [SerializeField] private float moveSpeed = 9f;
+    [SerializeField] private float defaultMoveSpeed = 9f;   
     [SerializeField] private float jumpSpeed = 2f;
     [SerializeField] private float doubleJumpSpeed;
+    [SerializeField] private Vector3 knockbackSpeed;
+    [SerializeField] private float canRollThreshold = -15f;
+    private bool isKnockback;
+    private bool canRoll;
     private bool isFacingRight = true;
     private bool canDoubleJump;
     private float moveInput;
 
+
+    [Header("Speed Control")]
+
+    [SerializeField] private float speedMultiplier = 1.01f;
+    [SerializeField] private float speedIncreaseCooldown = 4;
+    [SerializeField] private float maxMoveSpeed = 20;
+    [SerializeField] private float maxRunAnimSpeed = 1.7f;
+    private float currentMoveSpeed;
+    private float speedTimer = 0;
+    private float runAnimSpeed = 1;
 
 
 
@@ -85,30 +104,149 @@ public class Player : MonoBehaviour
     private Vector2 climbBeginPosition;
 
 
+    [SerializeField] private float invincibilityDuration=5f;
+    [SerializeField] private float blinkDuration = 0.5f;
+    private bool isDead;
+    private bool canBeKnocked = true;
+
+
 
     private void Start()
     {
+        
+        sr=GetComponentInChildren<SpriteRenderer>();
+
         lastSlidingTime = slidingCooldown;
         originalColliderSize = playerCollider.size;
         originalColliderOffset = playerCollider.offset;
+        currentMoveSpeed = defaultMoveSpeed;
+        originalColor = sr.color;
     }
 
     private void Update()
     {
         CheckCollision();
-        Movement();
         HandleAnimation();
+        HandleDeath();
+
+        if (isDead)
+            return;
+
+        Movement();
         HandleSliding();
         HandleJump();
         HandleFlip(moveInput);
         HandleLedge();
+        HandleSpeedControl();
+        HandleRoll();
+        HandleKnockback();
+        
     }
 
+    private void HandleDeath()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && !isDead)
+            Die();
 
+    }
+
+    private void Die()
+    {
+        float dir = isFacingRight ? 1 : -1;
+        isDead = true;
+
+        if (isHanging || isClimbing)
+        {
+           
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.linearVelocity = new Vector3(knockbackSpeed.x * dir, knockbackSpeed.y, 0f);
+        }
+
+
+        rb.linearVelocity = new Vector3(knockbackSpeed.x*dir,knockbackSpeed.y,0); 
+        
+    }
+
+    public void EndKnockback()
+    {
+        isKnockback = false;
+        StartCoroutine(Invincibility());
+    }
+
+    private void HandleKnockback()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.K) && canBeKnocked)
+            Knockback();
+    }
+
+    private void Knockback()
+    {
+
+        isKnockback = true;
+        rb.linearVelocity = knockbackSpeed;
+        
+    }
+    
+    private IEnumerator Invincibility()
+    {
+        float time = 0f;
+
+        canBeKnocked = false;
+
+        while (time < invincibilityDuration)
+        {
+        sr.color = invincibilityColor;
+        yield return new WaitForSeconds(blinkDuration);
+        sr.color = originalColor;
+            yield return new WaitForSeconds(blinkDuration);
+
+            time += blinkDuration*2;
+        }
+
+        canBeKnocked = true;
+        
+
+    }
+
+    private void HandleSpeedControl()
+    {
+        if (currentMoveSpeed == maxMoveSpeed)
+            return;
+
+        if (rb.linearVelocity.x > 0.1f) 
+        speedTimer += Time.deltaTime;
+
+
+        if (isWall && !isHanging && !isClimbing)
+        {
+            currentMoveSpeed = defaultMoveSpeed;
+            runAnimSpeed = 1;
+            speedTimer = 0;
+        }
+
+
+        if (speedTimer > speedIncreaseCooldown)
+        {
+            speedTimer = 0;
+             
+        currentMoveSpeed = currentMoveSpeed * speedMultiplier;
+            runAnimSpeed*= speedMultiplier;
+
+            if(currentMoveSpeed>maxMoveSpeed)
+                 currentMoveSpeed = maxMoveSpeed;
+            if(runAnimSpeed>maxRunAnimSpeed)
+                runAnimSpeed = maxRunAnimSpeed;
+        }
+
+
+
+    }
 
     private void HandleLedge()
     {
-        if (isTouchingLedgeWall && !isTouchingLedge && !isHanging && !isGrounded)
+        if (isTouchingLedgeWall && !isTouchingLedge && !isHanging && !isGrounded )
         {
 
             SnapToCorner();
@@ -121,8 +259,12 @@ public class Player : MonoBehaviour
 
     private void HandleHanging()
     {
+        
+
         if (isHanging)
         {
+            
+
             canDoubleJump = true;
 
             isClimbCeiling = ClimbCeilingCheck();
@@ -192,7 +334,9 @@ public class Player : MonoBehaviour
     
     private void Movement()
     {
-        if (isHanging|| isClimbing) return;
+        if (isHanging|| isClimbing || isKnockback || isDead) return;
+
+        
 
         moveInput = Input.GetAxisRaw("Horizontal");
 
@@ -202,7 +346,7 @@ public class Player : MonoBehaviour
         }
         else if (!WallCheck())
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(moveInput * currentMoveSpeed, rb.linearVelocity.y);
         }
     }
 
@@ -270,11 +414,15 @@ public class Player : MonoBehaviour
         anim.SetBool("isSliding", isSliding);
         anim.SetBool("isHanging", isHanging);
         anim.SetBool("isClimbing", isClimbing);
+        anim.SetBool("canRoll", canRoll);
+        anim.SetBool("isKnockback", isKnockback);
+        anim.SetBool("isDead", isDead);
+        anim.SetFloat("runAnimSpeed", runAnimSpeed);
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isHanging && !isClimbing)
+        if (Input.GetKeyDown(KeyCode.Space) && !isHanging && !isClimbing && !isDead)
             TryJump();
     }
 
@@ -293,6 +441,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    
     public void HandleFlip(float moveInput)
     {
         if (isHanging || isClimbing || isSliding) return;
@@ -310,6 +459,19 @@ public class Player : MonoBehaviour
         currentScale.x = currentScale.x * -1;
         transform.localScale = currentScale;
     }
+
+
+    public void EndRoll()
+    {
+        canRoll = false;
+    }
+
+    private void HandleRoll()
+    {
+        if (rb.linearVelocity.y < canRollThreshold)
+            canRoll = true;
+    }
+
 
     private void OnDrawGizmos()
     {
