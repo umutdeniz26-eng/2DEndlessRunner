@@ -17,11 +17,19 @@ public class Player : MonoBehaviour
 
     [Header("Movement Details")]
 
+    [SerializeField] private float currentMoveSpeed;
     [SerializeField] private float defaultMoveSpeed = 9f;   
-    [SerializeField] private float jumpSpeed = 2f;
-    [SerializeField] private float doubleJumpSpeed;
-    [SerializeField] private Vector3 knockbackSpeed;
-    [SerializeField] private float canRollThreshold = -15f;
+    [SerializeField] private float jumpSpeed = 15f;
+    [SerializeField] private float doubleJumpSpeed=10f;
+    [SerializeField] private Vector3 knockbackSpeed = new Vector3(-8, 3, 0);
+    [SerializeField] private float canRollThreshold = -20f;
+    [Space]
+    [SerializeField] private float speedMultiplier = 1.01f;
+    [SerializeField] private float speedIncreaseCooldown = 4;
+    [SerializeField] private float maxMoveSpeed = 20;
+    [SerializeField] private float maxRunAnimSpeed = 1.8f;
+    private float speedTimer = 0;
+    private float runAnimSpeed = 1;
     private bool isKnockback;
     private bool canRoll;
     private bool isFacingRight = true;
@@ -29,27 +37,20 @@ public class Player : MonoBehaviour
     private float moveInput;
 
 
-    [Header("Speed Control")]
-
-    [SerializeField] private float speedMultiplier = 1.01f;
-    [SerializeField] private float speedIncreaseCooldown = 4;
-    [SerializeField] private float maxMoveSpeed = 20;
-    [SerializeField] private float maxRunAnimSpeed = 1.7f;
-    private float currentMoveSpeed;
-    private float speedTimer = 0;
-    private float runAnimSpeed = 1;
-
+   
 
 
     [Header("Collision")]
 
     [Range(0f, 10f)]
-    [SerializeField] private float groundCheckDistance = 3;
+    [SerializeField] private float groundCheckDistance = 1.29f;
     [Range(0f, 10f)]
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.1f);
     [SerializeField] private Vector2 wallCheckSize = new Vector2(0.1f, 2f);
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask isGround;
+    [SerializeField] private LayerMask isTrap;
+    private bool isTouchingTrap;
     private bool isWallLedge;
     private bool isGrounded;
     private bool isLedge;
@@ -59,11 +60,12 @@ public class Player : MonoBehaviour
 
     [Header("Sliding")]
 
-    [SerializeField] private float slidingSpeed;
-    [SerializeField] private float slidingDuration = 2f;
-    [SerializeField] private float slidingCooldown = 4f;
-    [SerializeField] private float slideWallCheckDistance = 1.5f;
-    [SerializeField] private Vector2 slideWallCheckOffset = new Vector2(0f, -0.8f);
+    [SerializeField] private float slideSpeedMultiplier = 1.2f;  
+    [SerializeField] private float slidingDuration = 0.8f;
+    [SerializeField] private float slidingCooldown = 3f;
+    [SerializeField] private float slideWallCheckDistance = 1.2f;
+    [SerializeField] private Vector2 slideWallCheckOffset = new Vector2(0f, -1.21f);
+    [SerializeField] private float slidingSpeed = 12;
     private bool isSliding;
     private float slidingTimer;
     private float lastSlidingTime;
@@ -77,9 +79,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private CapsuleCollider2D playerCollider;
     [SerializeField] private Vector2 slidingColliderSize = new Vector2(0.6f, 1.25f);
-    [SerializeField] private Vector2 slidingColliderOffset = new Vector2(0f, -0.8f);
-    [SerializeField] private Vector2 ceilingCheckSize = new Vector2(0.5f, 0.1f);
-    [SerializeField] private float ceilingCheckDistance = 1f;
+    [SerializeField] private Vector2 slidingColliderOffset = new Vector2(0f, -0.71f);
+    [SerializeField] private Vector2 ceilingCheckSize = new Vector2(0.5f, 1.3f);
+    [SerializeField] private float ceilingCheckDistance = 0.45f;
     private Vector2 originalColliderSize;
     private Vector2 originalColliderOffset;
     private bool isCeiling;
@@ -87,12 +89,12 @@ public class Player : MonoBehaviour
 
     [Header("Ledge")]
 
-    [SerializeField] private Vector2 hangingOffset;
-    [SerializeField] private Vector2 standOffset;
-    [SerializeField] private Vector2 climbCeilingCheckOffset = new Vector2(0.5f, 1f);
-    [SerializeField] private Vector2 ledgeJump;
-    [SerializeField] private float climbCeilingCheckDistance = 2f;
-    [SerializeField] private float ledgeCheckDistance = 0.5f;
+    [SerializeField] private Vector2 hangingOffset = new Vector2(-0.46f, 1.25f);
+    [SerializeField] private Vector2 standOffset = new Vector2(0.872f, 2.519f);
+    [SerializeField] private Vector2 climbCeilingCheckOffset = new Vector2(0.5f, 1.3f);
+    [SerializeField] private Vector2 ledgeJump = new Vector2(3, 12);
+    [SerializeField] private float climbCeilingCheckDistance = 2.2f;
+    [SerializeField] private float ledgeCheckDistance = 0.6f;
     [SerializeField] private Transform ledgeCheck;
     [SerializeField] private Transform ledgeWallCheck;
     private bool isTouchingLedgeWall;
@@ -104,8 +106,10 @@ public class Player : MonoBehaviour
     private Vector2 climbBeginPosition;
 
 
-    [SerializeField] private float invincibilityDuration=5f;
-    [SerializeField] private float blinkDuration = 0.5f;
+    [Header("Invincibility")]
+    [SerializeField] private float invincibilityDuration=3f;
+    [SerializeField] private float blinkDuration = 0.25f;
+    [SerializeField] private float damageMultiplier = 1.5f;
     private bool isDead;
     private bool canBeKnocked = true;
 
@@ -150,6 +154,21 @@ public class Player : MonoBehaviour
 
     }
 
+    public void TakeDamage()
+    {
+        Damage();
+    }
+
+    private void Damage()
+    {
+        if (currentMoveSpeed >= defaultMoveSpeed * damageMultiplier)
+        {
+            Knockback();
+        }
+
+        else Die();
+    }
+
     private void Die()
     {
         float dir = isFacingRight ? 1 : -1;
@@ -186,6 +205,7 @@ public class Player : MonoBehaviour
 
         isKnockback = true;
         rb.linearVelocity = knockbackSpeed;
+        ResetSpeed();
         
     }
     
@@ -212,6 +232,12 @@ public class Player : MonoBehaviour
 
     private void HandleSpeedControl()
     {
+        if (isWall && !isHanging && !isClimbing)
+        {
+            ResetSpeed();
+        }
+
+
         if (currentMoveSpeed == maxMoveSpeed)
             return;
 
@@ -219,13 +245,7 @@ public class Player : MonoBehaviour
         speedTimer += Time.deltaTime;
 
 
-        if (isWall && !isHanging && !isClimbing)
-        {
-            currentMoveSpeed = defaultMoveSpeed;
-            runAnimSpeed = 1;
-            speedTimer = 0;
-        }
-
+       
 
         if (speedTimer > speedIncreaseCooldown)
         {
@@ -242,6 +262,13 @@ public class Player : MonoBehaviour
 
 
 
+    }
+
+    public void ResetSpeed()
+    {
+        currentMoveSpeed = defaultMoveSpeed;
+        runAnimSpeed = 1;
+        speedTimer = 0;
     }
 
     private void HandleLedge()
@@ -334,7 +361,7 @@ public class Player : MonoBehaviour
     
     private void Movement()
     {
-        if (isHanging|| isClimbing || isKnockback || isDead) return;
+        if (isHanging|| isClimbing || isKnockback || isDead ) return;
 
         
 
@@ -344,7 +371,7 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(slideDir * slidingSpeed, rb.linearVelocity.y);
         }
-        else if (!WallCheck())
+        else if (!WallCheck() && !isTouchingTrap)
         {
             rb.linearVelocity = new Vector2(moveInput * currentMoveSpeed, rb.linearVelocity.y);
         }
@@ -388,6 +415,7 @@ public class Player : MonoBehaviour
         slideDir = isFacingRight ? 1 : -1;
         playerCollider.size = slidingColliderSize;
         playerCollider.offset = slidingColliderOffset;
+        slidingSpeed = currentMoveSpeed * slideSpeedMultiplier;
     }
 
     private void CheckCollision()
@@ -396,6 +424,7 @@ public class Player : MonoBehaviour
 
         isWall = WallCheck();
         isGrounded = GroundCheck();
+        isTouchingTrap = TrapCheck();
 
        
         
@@ -422,7 +451,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isHanging && !isClimbing && !isDead)
+        if (Input.GetKeyDown(KeyCode.Space) && !isHanging && !isClimbing && !isDead &&!isSliding)
             TryJump();
     }
 
@@ -520,6 +549,13 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(wallCheck.position, wallCheckSize, 0, Vector2.zero, 0, isGround);
         return hit.collider != null;
+    }
+
+    private bool TrapCheck()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(wallCheck.position, wallCheckSize, 0, Vector2.zero, 0, isTrap);
+        return hit.collider != null;
+        
     }
 
     private bool CeilingCheck()

@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 61cdf3d3a42498b439f13d750a04b2ad
+guid: 0827bd3169ef86d4c8da8d41c8cc5cd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -590313304783847437
-    second: Coin (16 x 16)_0
+      213: 2435301500484193355
+    second: Bear_Trap_0
   - first:
-      213: -8723478487562341402
-    second: Coin (16 x 16)_1
+      213: -9080635200827685749
+    second: Bear_Trap_1
   - first:
-      213: -4435104820111122897
-    second: Coin (16 x 16)_2
+      213: -2400208759518429876
+    second: Bear_Trap_2
   - first:
-      213: 6524766481683253504
-    second: Coin (16 x 16)_3
+      213: 1351451857679782963
+    second: Bear_Trap_3
+  - first:
+      213: -894080948239011975
+    second: Bear_Trap_4
+  - first:
+      213: 6489366200590883201
+    second: Bear_Trap_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 21
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -77,11 +83,11 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,33 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Coin (16 x 16)_0
+      name: Bear_Trap_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
+        x: 5
+        y: 8
+        width: 22
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -148,76 +128,120 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3fffb2a4d29cec7f0800000000000000
-      internalID: -590313304783847437
+      spriteID: b4c0659dfcdebc120800000000000000
+      internalID: 2435301500484193355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin (16 x 16)_1
+      name: Bear_Trap_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 37
+        y: 16
+        width: 6
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6e3b517d88affe680800000000000000
-      internalID: -8723478487562341402
+      spriteID: b8402c7656a1bf180800000000000000
+      internalID: -9080635200827685749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin (16 x 16)_2
+      name: Bear_Trap_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 43
+        y: 8
+        width: 10
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f2e57af0aa75372c0800000000000000
-      internalID: -4435104820111122897
+      spriteID: c4d7f1e99deb0bed0800000000000000
+      internalID: -2400208759518429876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin (16 x 16)_3
+      name: Bear_Trap_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 52
+        y: 17
+        width: 6
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0090b1f9b80ac8a50800000000000000
-      internalID: 6524766481683253504
+      spriteID: 3349b04ed4251c210800000000000000
+      internalID: 1351451857679782963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Trap_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 8
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fe4c75d169793f0800000000000000
+      internalID: -894080948239011975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Trap_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 8
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18955a36d2cde0a50800000000000000
+      internalID: 6489366200590883201
       vertices: []
       indices: 
       edges: []
@@ -226,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Coin (16 x 16)_0: -590313304783847437
-      Coin (16 x 16)_1: -8723478487562341402
-      Coin (16 x 16)_2: -4435104820111122897
-      Coin (16 x 16)_3: 6524766481683253504
+      Bear_Trap_0: 2435301500484193355
+      Bear_Trap_1: -9080635200827685749
+      Bear_Trap_2: -2400208759518429876
+      Bear_Trap_3: 1351451857679782963
+      Bear_Trap_4: -894080948239011975
+      Bear_Trap_5: 6489366200590883201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

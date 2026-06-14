@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Trap
   - 
   - 
   - 
@@ -46,6 +46,12 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2302757827
+    locked: 0
+  - name: Collectible
+    uniqueID: 2289655115
+    locked: 0
+  - name: Trap
+    uniqueID: 4013392899
     locked: 0
   - name: Player
     uniqueID: 2253059271
