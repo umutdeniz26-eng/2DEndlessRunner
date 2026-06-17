@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 88ba27fd21276234081cff51711f7835
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7406501266561245305
+    second: Celing_0
+  - first:
+      213: -665248580461056998
+    second: Celing_1
+  - first:
+      213: 4819459648381517197
+    second: Celing_2
+  - first:
+      213: 8736980785198316192
+    second: Celing_3
+  - first:
+      213: -7029546514446565584
+    second: Celing_4
+  - first:
+      213: 2859648864634150209
+    second: Celing_5
+  - first:
+      213: 5312921946085168783
+    second: Celing_6
+  - first:
+      213: 4781246908167370622
+    second: Celing_7
+  - first:
+      213: -7291276050357388822
+    second: Celing_8
+  - first:
+      213: -7422943860856860785
+    second: Celing_9
+  - first:
+      213: 2106851597730301653
+    second: Celing_10
+  - first:
+      213: 171391995119152086
+    second: Celing_11
+  - first:
+      213: -2792586222245100874
+    second: Celing_12
+  - first:
+      213: -936506652450396673
+    second: Celing_13
+  - first:
+      213: -8713567165378543976
+    second: Celing_14
+  - first:
+      213: -5646099900227906803
+    second: Celing_15
+  - first:
+      213: -9131013436513987307
+    second: Celing_16
+  - first:
+      213: -3638041965697017647
+    second: Celing_17
+  - first:
+      213: -1711894938053288341
+    second: Celing_18
+  - first:
+      213: 2039580336450035701
+    second: Celing_19
+  - first:
+      213: 5427819762365364112
+    second: Celing_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Celing_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 31
+        width: 28
+        height: 33
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9702ddd19ad29c660800000000000000
+      internalID: 7406501266561245305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 31
+        width: 28
+        height: 33
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c2942d0ff84c6f0800000000000000
+      internalID: -665248580461056998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 30
+        width: 28
+        height: 33
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dfb1ff30922e240800000000000000
+      internalID: 4819459648381517197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 31
+        width: 28
+        height: 33
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aab82fcbbdff3970800000000000000
+      internalID: 8736980785198316192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_4
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 25
+        width: 28
+        height: 39
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03fb35270b8027e90800000000000000
+      internalID: -7029546514446565584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 15
+        width: 28
+        height: 49
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d1ed6cd738fa720800000000000000
+      internalID: 2859648864634150209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_6
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 5
+        width: 28
+        height: 59
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8698c36c5a4bb940800000000000000
+      internalID: 5312921946085168783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_7
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 0
+        width: 69
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7730c81bb66a5240800000000000000
+      internalID: 4781246908167370622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_8
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 0
+        width: 75
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae97223201f20da90800000000000000
+      internalID: -7291276050357388822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_9
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 0
+        width: 66
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fc5f113e76cf890800000000000000
+      internalID: -7422943860856860785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_10
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 0
+        width: 66
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d6cd259d5a0d3d10800000000000000
+      internalID: 2106851597730301653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_11
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0
+        width: 85
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db2c6a8c18e06200800000000000000
+      internalID: 171391995119152086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_12
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 10
+        width: 28
+        height: 54
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b24e6a60adbe39d0800000000000000
+      internalID: -2792586222245100874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_13
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 15
+        width: 28
+        height: 49
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff567e2592cd003f0800000000000000
+      internalID: -936506652450396673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_14
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 20
+        width: 28
+        height: 44
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89eba1d54d0331780800000000000000
+      internalID: -8713567165378543976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_15
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 25
+        width: 28
+        height: 39
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d031c881e0605a1b0800000000000000
+      internalID: -5646099900227906803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_16
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 30
+        width: 28
+        height: 34
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515d34d58af184180800000000000000
+      internalID: -9131013436513987307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_17
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 1
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d85aac7b14138dc0800000000000000
+      internalID: -3638041965697017647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_18
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 1
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6e5b84bf902e38e0800000000000000
+      internalID: -1711894938053288341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_19
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffd9f4828b0e4c10800000000000000
+      internalID: 2039580336450035701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Celing_20
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 097f1a8e05d735b40800000000000000
+      internalID: 5427819762365364112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 80821c76617f5b64faa3c2718922b836
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Celing_0: 7406501266561245305
+      Celing_1: -665248580461056998
+      Celing_10: 2106851597730301653
+      Celing_11: 171391995119152086
+      Celing_12: -2792586222245100874
+      Celing_13: -936506652450396673
+      Celing_14: -8713567165378543976
+      Celing_15: -5646099900227906803
+      Celing_16: -9131013436513987307
+      Celing_17: -3638041965697017647
+      Celing_18: -1711894938053288341
+      Celing_19: 2039580336450035701
+      Celing_2: 4819459648381517197
+      Celing_20: 5427819762365364112
+      Celing_3: 8736980785198316192
+      Celing_4: -7029546514446565584
+      Celing_5: 2859648864634150209
+      Celing_6: 5312921946085168783
+      Celing_7: 4781246908167370622
+      Celing_8: -7291276050357388822
+      Celing_9: -7422943860856860785
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

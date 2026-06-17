@@ -4,13 +4,13 @@ public class Trap : MonoBehaviour
 {
 
     private Animator anim;
-    private Collider2D trapCollider;
+    protected Collider2D trapCollider;
 
-    private bool isActivated;
-    private bool canActivated = true;
+    protected bool isActivated;
+    protected bool canActivated = true;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
      anim=GetComponentInChildren<Animator>();
         trapCollider = GetComponent<Collider2D>();
@@ -22,19 +22,24 @@ public class Trap : MonoBehaviour
     }
 
     
-    void Update()
+    protected virtual void Update()
     {
-
+        AnimationController();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void AnimationController()
+    {
+        anim.SetBool("isActivated", isActivated);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
 
         Player player = collision.GetComponent<Player>();
         if (player != null && canActivated)
         {
             isActivated = true;
-            anim.SetBool("isActivated", isActivated);
+            
 
             player.TakeDamage();
             canActivated = false;

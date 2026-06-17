@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1555038567336320569
+--- !u!1 &258899244427298775
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6407643454476575167}
-  - component: {fileID: 9084214751199737858}
+  - component: {fileID: 1661554292342454521}
+  - component: {fileID: 7487547623096575409}
   m_Layer: 0
-  m_Name: CoinGenerator
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6407643454476575167
+--- !u!4 &1661554292342454521
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555038567336320569}
+  m_GameObject: {fileID: 258899244427298775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.65, y: 5.14, z: 0}
+  m_LocalPosition: {x: -1.57449, y: 7.52695, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9084214751199737858
+--- !u!114 &7487547623096575409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555038567336320569}
+  m_GameObject: {fileID: 258899244427298775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d0cc5ac74aa5342b330d44764b8f78, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fa814e498d3f354385fee77a2cf1767, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinGenerator
-  Coin: {fileID: 7811243401941901672, guid: 6b79e30f29c69a24ca1af42392541239, type: 3}
-  minCoinAmount: 3
-  maxCoinAmount: 10
-  coinGenerateOffset: 1.5
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  coins: 4

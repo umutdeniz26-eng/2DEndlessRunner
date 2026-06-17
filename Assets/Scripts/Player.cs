@@ -517,7 +517,7 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube((Vector2)transform.position + slidingColliderOffset, slidingColliderSize);
 
-        //CeilingChec kGizmo
+        //CeilingCheck Gizmo
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position + Vector3.up * ceilingCheckDistance, ceilingCheckSize);
 
@@ -536,7 +536,10 @@ public class Player : MonoBehaviour
          Gizmos.color = Color.cyan;
          Gizmos.DrawLine(ledgeWallCheck.position, ledgeWallCheck.position + Vector3.right * dir * ledgeCheckDistance);
          Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + Vector3.right * dir * ledgeCheckDistance);
-        
+
+
+       
+
     }
 
     private bool GroundCheck()

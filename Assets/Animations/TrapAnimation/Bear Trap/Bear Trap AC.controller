@@ -47,7 +47,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BearTrapAnimator
+  m_Name: Bear Trap AC
   serializedVersion: 6
   m_AnimatorParameters:
   - m_Name: isActivated
