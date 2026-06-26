@@ -33,12 +33,11 @@ public class Player : MonoBehaviour
     private bool isKnockback;
     private bool canRoll;
     private bool isFacingRight = true;
-    private bool canDoubleJump;
+    private bool canDoubleJump = true;
     private float moveInput;
 
 
    
-
 
     [Header("Collision")]
 
@@ -55,6 +54,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool isLedge;
     private bool isWall;
+    public bool canMagnet;
 
 
 

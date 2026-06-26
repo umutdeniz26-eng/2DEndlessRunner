@@ -1,70 +1,64 @@
 fileFormatVersion: 2
-guid: 88ba27fd21276234081cff51711f7835
+guid: de4cb4d37241f68479edee1a16f51976
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7406501266561245305
-    second: Celing_0
+      213: 7096291692445818597
+    second: Ceiling Trap - Level 1_0
   - first:
-      213: -665248580461056998
-    second: Celing_1
+      213: 53915291480777011
+    second: Ceiling Trap - Level 1_1
   - first:
-      213: 4819459648381517197
-    second: Celing_2
+      213: -6738048259528004555
+    second: Ceiling Trap - Level 1_2
   - first:
-      213: 8736980785198316192
-    second: Celing_3
+      213: 7592566278921600391
+    second: Ceiling Trap - Level 1_3
   - first:
-      213: -7029546514446565584
-    second: Celing_4
+      213: 8182591398894936985
+    second: Ceiling Trap - Level 1_4
   - first:
-      213: 2859648864634150209
-    second: Celing_5
+      213: 48828574630290930
+    second: Ceiling Trap - Level 1_5
   - first:
-      213: 5312921946085168783
-    second: Celing_6
+      213: 4142838622621012499
+    second: Ceiling Trap - Level 1_6
   - first:
-      213: 4781246908167370622
-    second: Celing_7
+      213: 4242293467671257858
+    second: Ceiling Trap - Level 1_7
   - first:
-      213: -7291276050357388822
-    second: Celing_8
+      213: 1110965253717409458
+    second: Ceiling Trap - Level 1_8
   - first:
-      213: -7422943860856860785
-    second: Celing_9
+      213: 1017534689395146256
+    second: Ceiling Trap - Level 1_9
   - first:
-      213: 2106851597730301653
-    second: Celing_10
+      213: 7791667931543937044
+    second: Ceiling Trap - Level 1_10
   - first:
-      213: 171391995119152086
-    second: Celing_11
+      213: -2711038990403062227
+    second: Ceiling Trap - Level 1_11
   - first:
-      213: -2792586222245100874
-    second: Celing_12
+      213: -7708802802168039793
+    second: Ceiling Trap - Level 1_12
   - first:
-      213: -936506652450396673
-    second: Celing_13
+      213: -7171958058143118225
+    second: Ceiling Trap - Level 1_13
   - first:
-      213: -8713567165378543976
-    second: Celing_14
+      213: -4204230212763867770
+    second: Ceiling Trap - Level 1_14
   - first:
-      213: -5646099900227906803
-    second: Celing_15
+      213: -5612290156861530877
+    second: Ceiling Trap - Level 1_15
   - first:
-      213: -9131013436513987307
-    second: Celing_16
+      213: -1569411083727235808
+    second: Ceiling Trap - Level 1_16
   - first:
-      213: -3638041965697017647
-    second: Celing_17
+      213: 249007667214199925
+    second: Ceiling Trap - Level 1_17
   - first:
-      213: -1711894938053288341
-    second: Celing_18
-  - first:
-      213: 2039580336450035701
-    second: Celing_19
-  - first:
-      213: 5427819762365364112
-    second: Celing_20
+      213: -4957520847570580923
+    second: Ceiling Trap - Level 1_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -160,13 +154,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Celing_0
+      name: Ceiling Trap - Level 1_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 31
-        width: 28
-        height: 33
+        x: 16
+        y: 51
+        width: 32
+        height: 13
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,151 +169,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9702ddd19ad29c660800000000000000
-      internalID: 7406501266561245305
+      spriteID: 5eed9ce42b71b7260800000000000000
+      internalID: 7096291692445818597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_1
+      name: Ceiling Trap - Level 1_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 31
-        width: 28
-        height: 33
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1c2942d0ff84c6f0800000000000000
-      internalID: -665248580461056998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_2
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 30
-        width: 28
-        height: 33
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8dfb1ff30922e240800000000000000
-      internalID: 4819459648381517197
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_3
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 31
-        width: 28
-        height: 33
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0aab82fcbbdff3970800000000000000
-      internalID: 8736980785198316192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_4
-      rect:
-        serializedVersion: 2
-        x: 418
-        y: 25
-        width: 28
-        height: 39
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03fb35270b8027e90800000000000000
-      internalID: -7029546514446565584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_5
-      rect:
-        serializedVersion: 2
-        x: 514
-        y: 15
-        width: 28
-        height: 49
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14d1ed6cd738fa720800000000000000
-      internalID: 2859648864634150209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_6
-      rect:
-        serializedVersion: 2
-        x: 610
-        y: 5
-        width: 28
-        height: 59
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8698c36c5a4bb940800000000000000
-      internalID: 5312921946085168783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Celing_7
-      rect:
-        serializedVersion: 2
-        x: 686
+        x: 74
         y: 0
-        width: 69
+        width: 44
         height: 64
       alignment: 2
       pivot: {x: 0.5, y: 1}
@@ -329,19 +191,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7730c81bb66a5240800000000000000
-      internalID: 4781246908167370622
+      spriteID: 3316ca40cab8fb000800000000000000
+      internalID: 53915291480777011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_8
+      name: Ceiling Trap - Level 1_2
       rect:
         serializedVersion: 2
-        x: 779
+        x: 144
         y: 0
-        width: 75
+        width: 32
         height: 64
       alignment: 2
       pivot: {x: 0.5, y: 1}
@@ -351,19 +213,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae97223201f20da90800000000000000
-      internalID: -7291276050357388822
+      spriteID: 53ce463cec4ad72a0800000000000000
+      internalID: -6738048259528004555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_9
+      name: Ceiling Trap - Level 1_3
       rect:
         serializedVersion: 2
-        x: 879
+        x: 208
         y: 0
-        width: 66
+        width: 32
         height: 64
       alignment: 2
       pivot: {x: 0.5, y: 1}
@@ -373,19 +235,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f8fc5f113e76cf890800000000000000
-      internalID: -7422943860856860785
+      spriteID: 78d3bb4bdc63e5960800000000000000
+      internalID: 7592566278921600391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_10
+      name: Ceiling Trap - Level 1_4
       rect:
         serializedVersion: 2
-        x: 975
+        x: 272
         y: 0
-        width: 66
+        width: 32
         height: 64
       alignment: 2
       pivot: {x: 0.5, y: 1}
@@ -395,20 +257,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d6cd259d5a0d3d10800000000000000
-      internalID: 2106851597730301653
+      spriteID: 993ac4926876e8170800000000000000
+      internalID: 8182591398894936985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_11
+      name: Ceiling Trap - Level 1_5
       rect:
         serializedVersion: 2
-        x: 1062
+        x: 312
         y: 0
-        width: 85
+        width: 67
         height: 64
+      alignment: 9
+      pivot: {x: 0.59471744, y: 1.0000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f52ab574597da000800000000000000
+      internalID: 48828574630290930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ceiling Trap - Level 1_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 21
+        width: 32
+        height: 43
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,20 +301,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6db2c6a8c18e06200800000000000000
-      internalID: 171391995119152086
+      spriteID: 312181f07c15e7930800000000000000
+      internalID: 4142838622621012499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_12
+      name: Ceiling Trap - Level 1_7
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 10
-        width: 28
-        height: 54
+        x: 464
+        y: 29
+        width: 32
+        height: 35
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,20 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b24e6a60adbe39d0800000000000000
-      internalID: -2792586222245100874
+      spriteID: 2036185ae67afda30800000000000000
+      internalID: 4242293467671257858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_13
+      name: Ceiling Trap - Level 1_8
       rect:
         serializedVersion: 2
-        x: 1282
-        y: 15
-        width: 28
-        height: 49
+        x: 528
+        y: 36
+        width: 32
+        height: 28
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,20 +345,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff567e2592cd003f0800000000000000
-      internalID: -936506652450396673
+      spriteID: 2beb0a91301fa6f00800000000000000
+      internalID: 1110965253717409458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_14
+      name: Ceiling Trap - Level 1_9
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 20
-        width: 28
-        height: 44
+        x: 592
+        y: 43
+        width: 32
+        height: 21
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,20 +367,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89eba1d54d0331780800000000000000
-      internalID: -8713567165378543976
+      spriteID: 01ef80ca8620f1e00800000000000000
+      internalID: 1017534689395146256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_15
+      name: Ceiling Trap - Level 1_10
       rect:
         serializedVersion: 2
-        x: 1474
-        y: 25
-        width: 28
-        height: 39
+        x: 656
+        y: 49
+        width: 32
+        height: 15
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d031c881e0605a1b0800000000000000
-      internalID: -5646099900227906803
+      spriteID: 410aa73a3b0912c60800000000000000
+      internalID: 7791667931543937044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_16
+      name: Ceiling Trap - Level 1_11
       rect:
         serializedVersion: 2
-        x: 1570
-        y: 30
-        width: 28
-        height: 34
+        x: 720
+        y: 51
+        width: 32
+        height: 13
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,96 +411,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 515d34d58af184180800000000000000
-      internalID: -9131013436513987307
+      spriteID: d26bac4e664706ad0800000000000000
+      internalID: -2711038990403062227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_17
+      name: Ceiling Trap - Level 1_12
       rect:
         serializedVersion: 2
-        x: 873
-        y: 1
+        x: 784
+        y: 52
+        width: 32
+        height: 12
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f86fc35c1b4d40590800000000000000
+      internalID: -7708802802168039793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ceiling Trap - Level 1_13
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 51
+        width: 32
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6c01601526187c90800000000000000
+      internalID: -7171958058143118225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ceiling Trap - Level 1_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
         width: 7
         height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d85aac7b14138dc0800000000000000
-      internalID: -3638041965697017647
+      spriteID: 685ae3e75e297a5c0800000000000000
+      internalID: -4204230212763867770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_18
+      name: Ceiling Trap - Level 1_15
       rect:
         serializedVersion: 2
-        x: 945
+        x: 179
         y: 1
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 5
+        height: 5
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6e5b84bf902e38e0800000000000000
-      internalID: -1711894938053288341
+      spriteID: 30dd8d766d32d12b0800000000000000
+      internalID: -5612290156861530877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_19
+      name: Ceiling Trap - Level 1_16
       rect:
         serializedVersion: 2
-        x: 967
-        y: 0
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 197
+        y: 2
+        width: 5
+        height: 5
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ffd9f4828b0e4c10800000000000000
-      internalID: 2039580336450035701
+      spriteID: 02590e73fe4583ae0800000000000000
+      internalID: -1569411083727235808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Celing_20
+      name: Ceiling Trap - Level 1_17
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 246
+        y: 1
+        width: 4
+        height: 4
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 097f1a8e05d735b40800000000000000
-      internalID: 5427819762365364112
+      spriteID: 57ca6ae6727a47300800000000000000
+      internalID: 249007667214199925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ceiling Trap - Level 1_18
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1
+        width: 4
+        height: 4
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a46f12e09533bb0800000000000000
+      internalID: -4957520847570580923
       vertices: []
       indices: 
       edges: []
@@ -625,7 +575,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 80821c76617f5b64faa3c2718922b836
+    spriteID: 2a0dc07be7f0db24884b544f3186f021
     internalID: 0
     vertices: []
     indices: 
@@ -633,29 +583,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":2,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Celing_0: 7406501266561245305
-      Celing_1: -665248580461056998
-      Celing_10: 2106851597730301653
-      Celing_11: 171391995119152086
-      Celing_12: -2792586222245100874
-      Celing_13: -936506652450396673
-      Celing_14: -8713567165378543976
-      Celing_15: -5646099900227906803
-      Celing_16: -9131013436513987307
-      Celing_17: -3638041965697017647
-      Celing_18: -1711894938053288341
-      Celing_19: 2039580336450035701
-      Celing_2: 4819459648381517197
-      Celing_20: 5427819762365364112
-      Celing_3: 8736980785198316192
-      Celing_4: -7029546514446565584
-      Celing_5: 2859648864634150209
-      Celing_6: 5312921946085168783
-      Celing_7: 4781246908167370622
-      Celing_8: -7291276050357388822
-      Celing_9: -7422943860856860785
+      Ceiling Trap - Level 1_0: 7096291692445818597
+      Ceiling Trap - Level 1_1: 53915291480777011
+      Ceiling Trap - Level 1_10: 7791667931543937044
+      Ceiling Trap - Level 1_11: -2711038990403062227
+      Ceiling Trap - Level 1_12: -7708802802168039793
+      Ceiling Trap - Level 1_13: -7171958058143118225
+      Ceiling Trap - Level 1_14: -4204230212763867770
+      Ceiling Trap - Level 1_15: -5612290156861530877
+      Ceiling Trap - Level 1_16: -1569411083727235808
+      Ceiling Trap - Level 1_17: 249007667214199925
+      Ceiling Trap - Level 1_18: -4957520847570580923
+      Ceiling Trap - Level 1_2: -6738048259528004555
+      Ceiling Trap - Level 1_3: 7592566278921600391
+      Ceiling Trap - Level 1_4: 8182591398894936985
+      Ceiling Trap - Level 1_5: 48828574630290930
+      Ceiling Trap - Level 1_6: 4142838622621012499
+      Ceiling Trap - Level 1_7: 4242293467671257858
+      Ceiling Trap - Level 1_8: 1110965253717409458
+      Ceiling Trap - Level 1_9: 1017534689395146256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

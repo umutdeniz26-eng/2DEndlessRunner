@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CeilingTrap : Trap
+public class DetectingTrap : Trap
 {
     [SerializeField] BoxCollider2D Detector;
     private TrapDetector trapDetector;

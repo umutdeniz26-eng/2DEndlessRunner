@@ -3,7 +3,7 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
 
-    private Animator anim;
+    protected Animator anim;
     protected Collider2D trapCollider;
 
     protected bool isActivated;
@@ -27,7 +27,7 @@ public class Trap : MonoBehaviour
         AnimationController();
     }
 
-    private void AnimationController()
+    protected virtual void AnimationController()
     {
         anim.SetBool("isActivated", isActivated);
     }
