@@ -3,8 +3,9 @@ using UnityEngine;
 public class Coin : MonoBehaviour,ICollectible
 {
 
-    [SerializeField] private float moveSpeed;
     Player player;
+    CoinMagnetPowerUp magnet;
+    private float coinMoveSpeed;
     private Rigidbody2D rb;
     private Vector2 targetPos;
     private bool shouldMove;
@@ -12,13 +13,14 @@ public class Coin : MonoBehaviour,ICollectible
     
     void Start()
     {
-
+        coinMoveSpeed = magnet.coinMoveSpeed;
     }
 
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
         player= FindAnyObjectByType<Player>();
+        magnet = FindAnyObjectByType<CoinMagnetPowerUp>();
     }
 
     void Update()
@@ -33,7 +35,7 @@ public class Coin : MonoBehaviour,ICollectible
     private void MoveToPlayer()
     {
         
-        rb.linearVelocity=new Vector2(targetPos.x,targetPos.y)*moveSpeed;
+        rb.linearVelocity=new Vector2(targetPos.x,targetPos.y)*coinMoveSpeed;
     }
 
     public void TargetPlayer(Vector2 Position)

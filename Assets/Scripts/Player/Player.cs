@@ -1,5 +1,5 @@
 using System.Collections;
-
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     [Header("Movement Details")]
 
-    [SerializeField] private float currentMoveSpeed;
+    [SerializeField] public float currentMoveSpeed;
     [SerializeField] private float defaultMoveSpeed = 9f;   
     [SerializeField] private float jumpSpeed = 15f;
     [SerializeField] private float doubleJumpSpeed=10f;
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speedIncreaseCooldown = 4;
     [SerializeField] private float maxMoveSpeed = 20;
     [SerializeField] private float maxRunAnimSpeed = 1.8f;
+    public Action OnPlayerTurned;
     private float speedTimer = 0;
     private float runAnimSpeed = 1;
     private bool isKnockback;
@@ -110,7 +111,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float invincibilityDuration=3f;
     [SerializeField] private float blinkDuration = 0.25f;
     [SerializeField] private float damageMultiplier = 1.5f;
-    private bool isDead;
+    public bool isInvincible;
+    public bool isDead;
     private bool canBeKnocked = true;
 
 
@@ -156,7 +158,8 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        Damage();
+        if(!isInvincible)
+           Damage();
     }
 
     private void Damage()
@@ -232,7 +235,7 @@ public class Player : MonoBehaviour
 
     private void HandleSpeedControl()
     {
-        if (isWall && !isHanging && !isClimbing)
+        if (isWall && !isHanging && !isClimbing && !isInvincible)
         {
             ResetSpeed();
         }
@@ -487,6 +490,7 @@ public class Player : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x = currentScale.x * -1;
         transform.localScale = currentScale;
+        OnPlayerTurned?.Invoke();
     }
 
 
