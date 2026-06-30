@@ -9,9 +9,39 @@ public class PowerUpIcon : MonoBehaviour
     private Coroutine co;
     private SpriteRenderer sr;
 
-    
     private float baseScaleX;
     private float originalLocalX;
+
+   
+    public static void AddOrRefreshIcon(Player targetPlayer, Sprite iconSprite, float duration)
+    {
+        PowerUpIcon[] icons = targetPlayer.GetComponentsInChildren<PowerUpIcon>();
+        PowerUpIcon emptySlot = null;
+
+        foreach (PowerUpIcon icon in icons)
+        {
+            
+            if (icon.CurrentSprite == iconSprite)
+            {
+                icon.ShowPowerUp(iconSprite, duration);
+                return;
+            }
+          
+            if (icon.CurrentSprite == null && emptySlot == null)
+            {
+                emptySlot = icon;
+            }
+        }
+
+       
+        if (emptySlot != null)
+        {
+            emptySlot.ShowPowerUp(iconSprite, duration);
+        }
+    }
+
+    
+    public Sprite CurrentSprite => (co != null) ? sr.sprite : null;
 
     private void Awake()
     {
@@ -19,7 +49,6 @@ public class PowerUpIcon : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
 
-        
         baseScaleX = Mathf.Abs(transform.localScale.x);
         originalLocalX = transform.localPosition.x;
     }
@@ -28,17 +57,13 @@ public class PowerUpIcon : MonoBehaviour
     {
         if (player != null)
         {
-           
             player.OnPlayerTurned += FixIconDir;
-
-            
             FixIconDir();
         }
     }
 
     private void OnDestroy()
     {
-        
         if (player != null)
         {
             player.OnPlayerTurned -= FixIconDir;
@@ -59,14 +84,26 @@ public class PowerUpIcon : MonoBehaviour
         }
     }
 
-    public bool ShowPowerUp(Sprite powerUpSprite, float duration)
+    public void ForceClear()
     {
-        if (co == null)
+        if (co != null)
         {
-            co = StartCoroutine(ShowPowerUpCo(powerUpSprite, duration));
-            return true;
+            StopCoroutine(co);
+            co = null;
         }
-        return false;
+
+        if (sr != null)
+        {
+            sr.sprite = null;
+            sr.enabled = false;
+        }
+    }
+
+    public void ShowPowerUp(Sprite powerUpSprite, float duration)
+    {
+        
+        if (co != null) StopCoroutine(co);
+        co = StartCoroutine(ShowPowerUpCo(powerUpSprite, duration));
     }
 
     private IEnumerator ShowPowerUpCo(Sprite powerUpSprite, float duration)
@@ -99,14 +136,10 @@ public class PowerUpIcon : MonoBehaviour
         co = null;
     }
 
-    
     private void FixIconDir()
     {
-       
         float dir = Mathf.Sign(player.transform.localScale.x);
         transform.localScale = new Vector3(baseScaleX * dir, transform.localScale.y, transform.localScale.z);
-
-        
         transform.localPosition = new Vector3(originalLocalX * dir, transform.localPosition.y, transform.localPosition.z);
     }
 }

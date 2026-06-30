@@ -5,6 +5,7 @@ public class Coin : MonoBehaviour,ICollectible
 
     Player player;
     CoinMagnetPowerUp magnet;
+    GameManager gameManager;
     private float coinMoveSpeed;
     private Rigidbody2D rb;
     private Vector2 targetPos;
@@ -13,13 +14,15 @@ public class Coin : MonoBehaviour,ICollectible
     
     void Start()
     {
-        coinMoveSpeed = magnet.coinMoveSpeed;
+        if(magnet!=null)
+          coinMoveSpeed = magnet.coinMoveSpeed;
     }
 
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
         player= FindAnyObjectByType<Player>();
+        gameManager = FindAnyObjectByType<GameManager>();
         magnet = FindAnyObjectByType<CoinMagnetPowerUp>();
     }
 
@@ -48,7 +51,8 @@ public class Coin : MonoBehaviour,ICollectible
     {
         if (collision.GetComponent<Player>() != null)
         {
-        GameManager.instance.coins++;
+            int coinToAdd = gameManager.coinMultiplier;
+            GameManager.gameManager.coins += coinToAdd;
         Destroy(gameObject);
         
 

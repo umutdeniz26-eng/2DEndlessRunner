@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
    [SerializeField] private Rigidbody2D rb;
    [SerializeField] private Animator anim;
+    GameManager gameManager;
     private SpriteRenderer sr;
     private Color invincibilityColor = new Color32(255, 255, 255, 120);
     private Color originalColor;
@@ -108,6 +109,8 @@ public class Player : MonoBehaviour
 
 
     [Header("Invincibility")]
+    public int playerHealth = 1;
+    private int damage = 1;
     [SerializeField] private float invincibilityDuration=3f;
     [SerializeField] private float blinkDuration = 0.25f;
     [SerializeField] private float damageMultiplier = 1.5f;
@@ -116,11 +119,16 @@ public class Player : MonoBehaviour
     private bool canBeKnocked = true;
 
 
+    private void Awake()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     private void Start()
     {
         
-        sr=GetComponentInChildren<SpriteRenderer>();
+
 
         lastSlidingTime = slidingCooldown;
         originalColliderSize = playerCollider.size;
@@ -164,15 +172,37 @@ public class Player : MonoBehaviour
 
     private void Damage()
     {
-        if (currentMoveSpeed >= defaultMoveSpeed * damageMultiplier)
+
+        
+
+        if (currentMoveSpeed >= defaultMoveSpeed * damageMultiplier )
         {
-            Knockback();
+            KnockbackWithSpeed();
         }
 
-        else Die();
+        else if (playerHealth > 1)
+        {
+            KnockbackWithDamage();
+
+        }
+        else
+        {
+
+            Die();
+        }
+
+        ClearPowerUpIcons();
+        PowerUpBase.ClearAllPowerUps();
     }
 
-    private void Die()
+    private void KnockbackWithDamage()
+    {
+        isKnockback = true;
+        rb.linearVelocity = knockbackSpeed;
+        playerHealth -= damage;
+        ResetSpeed();
+    }
+    private IEnumerator DieCo()
     {
         float dir = isFacingRight ? 1 : -1;
         isDead = true;
@@ -185,8 +215,16 @@ public class Player : MonoBehaviour
         }
 
 
-        rb.linearVelocity = new Vector3(knockbackSpeed.x*dir,knockbackSpeed.y,0); 
-        
+        rb.linearVelocity = new Vector3(knockbackSpeed.x*dir,knockbackSpeed.y,0);
+
+        yield return new WaitForSeconds(2);
+
+            gameManager.RestartLevel();
+    }
+
+    private void Die()
+    {
+        StartCoroutine(DieCo());
     }
 
     public void EndKnockback()
@@ -200,15 +238,16 @@ public class Player : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.K) && canBeKnocked)
-            Knockback();
+            KnockbackWithSpeed();
     }
 
-    private void Knockback()
+    private void KnockbackWithSpeed()
     {
 
         isKnockback = true;
         rb.linearVelocity = knockbackSpeed;
         ResetSpeed();
+        
         
     }
     
@@ -403,6 +442,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ClearPowerUpIcons()
+    {
+        PowerUpIcon[] icons = GetComponentsInChildren<PowerUpIcon>();
+        foreach (PowerUpIcon icon in icons)
+        {
+            icon.ForceClear();
+        }
+    }
+
     private void TrySlide()
     {
         if (slidingTimer < lastSlidingTime - slidingCooldown && isHanging == false && rb.linearVelocity.y == 0)
@@ -427,11 +475,14 @@ public class Player : MonoBehaviour
 
         isWall = WallCheck();
         isGrounded = GroundCheck();
-        isTouchingTrap = TrapCheck();
 
-       
-        
-            isTouchingLedgeWall=LedgeWallCheck(dir);
+        if (isGrounded)
+        {
+            canDoubleJump = true;
+        }
+
+        isTouchingTrap = TrapCheck();
+        isTouchingLedgeWall =LedgeWallCheck(dir);
             isTouchingLedge = LedgeCheck(dir);
         
     }
@@ -462,7 +513,7 @@ public class Player : MonoBehaviour
     {
         if (isGrounded)
         {
-            canDoubleJump = true;
+            
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
         }
         else if (canDoubleJump)
