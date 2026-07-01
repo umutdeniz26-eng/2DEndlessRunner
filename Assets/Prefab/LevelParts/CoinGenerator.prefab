@@ -41,10 +41,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1555038567336320569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d0cc5ac74aa5342b330d44764b8f78, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b67a87f4c6719e41bb0397f10279464, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinGenerator
-  Coin: {fileID: 7811243401941901672, guid: 6b79e30f29c69a24ca1af42392541239, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::LevelPart
+  coinLevel1: {fileID: 7811243401941901672, guid: ae6a8242d4e6f4f4a95553ea061cb480, type: 3}
+  coinLevel2: {fileID: 7811243401941901672, guid: 4d89836474e1d4449aaf0d758484cefe, type: 3}
+  coinLevel3: {fileID: 1223424863889159213, guid: a65780ff744c334448109f10668bf604, type: 3}
+  diamond: {fileID: 8534776934816171926, guid: 39656529c82d9e745a44e52b7359d600, type: 3}
+  noCoinChance: 30
+  coinLevel1Chance: 75
+  coinLevel2Chance: 87
+  coinLevel3Chance: 95
+  diamondChance: 99
+  coinSpawnDelay: 2.5
   minCoinAmount: 3
-  maxCoinAmount: 10
-  coinGenerateOffset: 1.5
+  maxCoinAmount: 5

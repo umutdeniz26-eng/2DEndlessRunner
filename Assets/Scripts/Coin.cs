@@ -3,6 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour,ICollectible
 {
 
+    [SerializeField] private int coinValue;
     Player player;
     CoinMagnetPowerUp magnet;
     GameManager gameManager;
@@ -51,7 +52,7 @@ public class Coin : MonoBehaviour,ICollectible
     {
         if (collision.GetComponent<Player>() != null)
         {
-            int coinToAdd = gameManager.coinMultiplier;
+            int coinToAdd = gameManager.coinMultiplier*coinValue;
             GameManager.gameManager.coins += coinToAdd;
         Destroy(gameObject);
         

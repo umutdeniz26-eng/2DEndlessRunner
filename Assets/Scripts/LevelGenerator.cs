@@ -1,56 +1,40 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    [SerializeField] private GameObject[] levelPrefabs;
 
-    [SerializeField] private Transform[] levelPart;
-    [SerializeField] private Transform player;
-    [SerializeField] private Vector3 nextPartPosition;
-    [SerializeField] private float distanceToSpawn = 30;
-    [SerializeField] private float distanceToDelete=30;
-    
-    private void Start()
+    private Vector3 lastEndPos;
+    [SerializeField] private Transform startPos;
+    [SerializeField] private float spawnDistance=20f;
+    [SerializeField] Transform player;
+
+    void Start()
     {
+        lastEndPos = startPos.position;
 
-        
-
+        SpawnLevelPart();
+            SpawnLevelPart();
     }
+
+    
     void Update()
     {
-        GeneratePlatform();
-        DeletePlatform();
-
-    }
-
-    
-
-    private void GeneratePlatform()
-    {
-        while (Vector3.Distance(player.position, nextPartPosition) < distanceToSpawn)
+        if (Vector3.Distance(player.transform.position,lastEndPos)<spawnDistance)
         {
-
-            Transform part = levelPart[Random.Range(0, levelPart.Length)];
-
-            Vector3 newPosition = new Vector3(nextPartPosition.x - part.Find("StartPos").position.x,0,0);
-
-            Transform newPart = Instantiate(part, newPosition, transform.rotation, transform);
-
-            nextPartPosition = newPart.Find("EndPos").position;
+            SpawnLevelPart();
         }
     }
 
-
-    private void DeletePlatform()
+    private void SpawnLevelPart()
     {
-        if (transform.childCount > 0)
-        {
-            Transform partToDelete=transform.GetChild(0);
+        int randomIndex = Random.Range(0, levelPrefabs.Length);
 
-            if (Vector3.Distance(player.position, partToDelete.Find("EndPos").position) > distanceToDelete)
-                Destroy(partToDelete.gameObject);
+        GameObject levelToCreate = levelPrefabs[randomIndex];
 
-        }
+        GameObject newPart=Instantiate(levelToCreate, lastEndPos, Quaternion.identity);
+
+        Transform endPos = newPart.transform.Find("EndPoint");
+        lastEndPos = endPos.position;
     }
 }
